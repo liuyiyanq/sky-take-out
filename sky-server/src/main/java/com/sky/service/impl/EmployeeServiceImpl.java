@@ -85,14 +85,6 @@ public class EmployeeServiceImpl implements EmployeeService {
         // Set the status of employee
         employee.setStatus(StatusConstant.ENABLE);
 
-        // Set the creation time and update time
-        employee.setCreateTime(LocalDateTime.now());
-        employee.setUpdateTime(LocalDateTime.now());
-
-        // Set the createUser and updateUser
-        employee.setCreateUser(BaseContext.getCurrentId());
-        employee.setUpdateUser(BaseContext.getCurrentId());
-
         employeeMapper.insert(employee);
     }
 
@@ -140,11 +132,7 @@ public class EmployeeServiceImpl implements EmployeeService {
      * @return
      */
     public void update(EmployeeDTO employeeDTO) {
-        Employee employee = Employee.builder()
-                .updateTime(LocalDateTime.now())
-                .updateUser(BaseContext.getCurrentId())
-                .build();
-
+        Employee employee = new Employee();
         BeanUtils.copyProperties(employeeDTO, employee);
         employeeMapper.update(employee);
     }

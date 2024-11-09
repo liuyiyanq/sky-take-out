@@ -39,4 +39,8 @@ public interface DishMapper {
 
     @AutoFill(OperationType.UPDATE)
     void update(Dish dish);
+
+    List<Dish> listByCategoryId(Long id);
+
+    List<Dish> getDishesBySetmealId(Long setmealId);
 }

@@ -121,4 +121,18 @@ public class DishServiceImpl implements DishService {
         }
     }
 
+    public void enableOrDisable(Integer status, long id) {
+        Dish dish = new Dish();
+        dish.setId(id);
+        dish.setStatus(status);
+        dishMapper.update(dish);
+    }
+
+
+    public List<Dish> listByCategoryId(Long categoryId) {
+        List<Dish> dishes = dishMapper.listByCategoryId(categoryId);
+        return dishes;
+    }
+
+
 }

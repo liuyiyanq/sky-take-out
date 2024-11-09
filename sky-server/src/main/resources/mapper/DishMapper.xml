@@ -53,6 +53,26 @@
         ORDER BY
             d.create_time DESC
     </select>
+    <select id="listByCategoryId" resultType="com.sky.entity.Dish">
+        select * from dish
+        <where>
+            status = 1
+            <if test="categoryId != null">
+                and category_id = #{categoryId}
+            </if>
+        </where>
+        order by create_time desc
+    </select>
+    <select id="getDishesBySetmealId" resultType="com.sky.entity.Dish">
+        select d.*
+        from dish d
+        left join setmeal_dish sd
+        on d.id = sd.dish_id
+        <where>
+            sd.setmeal_id = #{setmealId}
+        </where>
+        order by d.create_time desc
+    </select>
 
     <delete id="deleteByIds">
         delete from dish where id in

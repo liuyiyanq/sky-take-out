@@ -11,3 +11,9 @@ sky:
     access-key-secret: 27azA4vO52soikavSZYisy3QBsa1Ka
     access-key-id: LTAI5t9GKrcqRKrysKqgZQAT
     bucket-name: bucket-qlyy
+  redis:
+    host: localhost
+    port: 6379
+  wechat:
+    appid: wxc68dea6437053fdf
+    secret: 38003fbc0cd2bfca63085ffdbd9b2968

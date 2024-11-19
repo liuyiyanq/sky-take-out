@@ -49,7 +49,7 @@ public class DishServiceImpl implements DishService {
         Long dishId = dish.getId();
 
         List<DishFlavor> flavors = dishDTO.getFlavors();
-        if(flavors != null || flavors.size() > 0) {
+        if(flavors != null && flavors.size() > 0) {
             for (DishFlavor flavor : flavors) {
                 flavor.setDishId(dishId);
             }
@@ -114,7 +114,7 @@ public class DishServiceImpl implements DishService {
 
         dishFlavorMapper.deleteByDishId(id);
         List<DishFlavor> flavors = dishDTO.getFlavors();
-        if(flavors != null || flavors.size() > 0) {
+        if(flavors != null && flavors.size() > 0) {
             for (DishFlavor flavor : flavors) {
                 flavor.setDishId(id);
             }
